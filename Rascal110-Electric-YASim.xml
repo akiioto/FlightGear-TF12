@@ -1,56 +1,26 @@
-<?xml version="1.0"?>
-
-<!--
-************************************************************************
-YASim aerodynamic model for a Rascal 110 (R/C airplane by Sig Mfg.)
-Started December 19, 2005 by Curtis Olson.
-
-This aerodynamic model is based on three-views, self captured
-performance data, and few guesses.  These sites provided particularly
-useful information or were simply fun to visit:
-http://gallinazo.flightgear.org/uas/rascal-1/sig-rascal-110-1-construction/
-
-The reference datum for measurements is the tip of the nose.
-************************************************************************
--->
-
-<!-- 12 lb aircraft weight includes engine, but not fuel (empty weight) -->
-<airplane version="YASIM_VERSION_CURRENT" mass-kg="5.4" mtow-kg="25">
+<airplane version="YASIM_VERSION_CURRENT" mass-kg="10" mtow-kg="12">
 
 <!-- Approach configuration -->
-<approach speed="18" aoa="4">
+<approach speed="14.00" aoa="4"> <!-- updated stall speed here -->
   <control-setting axis="/controls/engines/engine[0]/throttle" value="0.10"/>
 </approach>
 
 <!-- Cruise configuration -->
-<cruise speed="30" alt="1000">
+<cruise speed="30" alt="1000"> <!-- assuming cruise speed remains unchanged -->
   <control-setting axis="/controls/engines/engine[0]/throttle" value="1.00"/>
   <control-setting axis="/controls/engines/engine[0]/mixture" value="1.00"/>
   <control-setting axis="/controls/flight/elevator-trim" value="0.4"/>
 </cruise>
 
-<!-- pilot's eyepoint -->
+
 <cockpit x="-0.48" y="0" z="0.30"/>
 
-<fuselage ax="0.00" ay="0.00" az="-0.05" bx="-1.93" by="0.00" bz="-0.05"
-          width="0.30" taper="0.47" midpoint="0.58"/>
+<fuselage ax="0.00" ay="0.00" az="-0.05" bx="18.58" by="0.00" bz="-0.05" 
+          width="1.68" taper="11.08" midpoint="9.29"/> <!-- updated fuselage details here -->
 
-<!--
-  The Rascal has an eliptical wing, but we'll model it as a straight
-  tapered wing with the equivalent wing area.
-  Note that the dihedral is exaggerated to simulate hull-interference effects
-  on a high-wing aircraft; once YASim models that properly, the
-  angle should be reduced to something like 2 degrees.
-
-  Note that the Rascal has no flaps.  With a stall speed of 10kt, who
-  needs them?
--->
-
-
-
-<wing x="-0.66" y="0.07" z="0.11" taper="0.73" incidence="0" twist="-3"
-      length="1.33" chord="0.41" sweep="0" dihedral="5" camber="0.0">
-  <stall aoa="15" width="4" peak="1.5"/>
+<wing x="-0.66" y="0.07" z="0.11" taper="0.36" incidence="0" twist="-3" 
+      length="12.67" chord="0.71" sweep="0" dihedral="0" camber="23.79">
+  <stall aoa="15" width="4" peak="1.52"/> <!-- updated stall peak here -->
   <flap0 start="0.40" end="0.95" lift="1.1" drag="1.2"/>
   <control-input axis="/controls/flight/aileron" control="FLAP0" split="true"/>
   <control-input axis="/controls/flight/aileron-trim" control="FLAP0" split="true"/>
@@ -95,10 +65,11 @@ The reference datum for measurements is the tip of the nose.
            contra="0"
            >
   <actionpt x="0.00" y="0.00" z="0.00"/>
-  <electric-engine Kv="750" voltage="15" Rm="0.02" >
+  <electric-engine Kv="750" voltage="15" Rm="0.02" > <!-- assumed engine type is electric -->
     <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
   </electric-engine>
 </propeller>
+
 
 <!-- tail gear -->
 <gear x="-1.93" y="0.00" z="-0.13"

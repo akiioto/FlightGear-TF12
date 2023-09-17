@@ -10,10 +10,10 @@ dynamics model, and external 3D model.
 <PropertyList>
  <sim>
 
-  <description>Rascal 110 Electric YASim</description>
-  <author>Lee Elliot (3D) Dave Culp (JSBsim dynamics) and Curt Olson, ThunderFly s.r.o.</author>
-  <status>advanced production</status>
-  <aircraft-version>0.2</aircraft-version>
+  <description>TwinStratos12 Electric YASim</description>
+  <author>Patryk Dobrowolski.</author>
+  <status>draft</status>
+  <aircraft-version>0.1</aircraft-version>
   <minimum-fg-version>2019.2.0</minimum-fg-version>
   <rating>
       <FDM type="int">4</FDM>
@@ -176,7 +176,7 @@ dynamics model, and external 3D model.
   </multiplay>
 
   <help>
-    <title>Rascal 110 (Sig Mfg)</title>
+    <title>TwinStratos 12 (Sig Mfg)</title>
     <line>Cruise speed: 30 kts</line>
     <line>Never-exceed (Vne): 85 kts</line>
     <line>Best Glide (Vglide): 20 kts</line>
